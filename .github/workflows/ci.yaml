@@ -9,11 +9,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          node-version: 18
+      
+      - run:  npm install 
 
-      - name: Instalar dependências
-        run: 
-          npm install 
-          npm install cypress --save-dev
-
-      - name: Executar testes
-        run: npm run test
+      - name: Executar testes do Cypress
+        run: npx cypress run
