@@ -1,0 +1,19 @@
+name: CI - Testes Automatizados
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Instalar dependências
+        run: 
+          npm install 
+          npm install cypress --save-dev
+
+      - name: Executar testes
+        run: npm run test
